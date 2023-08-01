@@ -1,0 +1,53 @@
+<%- include('header');%>
+
+<div class="container-fluid">
+  <div class="row wrapper">
+    <div class="row route-toggle">
+      <div class="col-sm-3 route-btns">
+        <a href="/"><i class="fa-solid fa-calendar-days"></i>Today</a
+        ><a href="/work"><i class="fa-solid fa-briefcase"></i>Work</a>
+      </div>
+    </div>
+    <div class="col-lg-6 col-sm-12 col-wrapper">
+      <div class="row heading shadow-class">
+        <h1><%=listTitle%></h1>
+      </div>
+
+      <!-- To do List -->
+      <div>
+        <%for (x=0;x<(newTasks.length);x++){%>
+        <div class="row item shadow-class">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <input type="checkbox" />
+            <p><%=newTasks[x]%></p>
+          </div>
+        </div>
+        <%}%>
+      </div>
+
+      <!-- New task form -->
+
+      <div class="row new-item shadow-class">
+        <form action="/" method="POST" class="row flex-nowrap">
+          <input
+            type="text"
+            id="newTask"
+            name="newTask"
+            autocomplete="off"
+            placeholder="Add task"
+            class="col-lg-10 col-md-10 col-sm-10 form-input"
+          />
+          <button
+            type="submit"
+            name="button"
+            class="col-lg-2 col-md-2 col-sm-2 form-button"
+            value="<%=listTitle%>"
+          >
+            +
+          </button>
+        </form>
+      </div>
+    </div>
+    <%- include('footer');%>
+  </div>
+</div>
