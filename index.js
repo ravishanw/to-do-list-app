@@ -3,7 +3,9 @@ const bodyParser = require("body-parser");
 const todayDate = require(__dirname + "/date.js");
 let newItems = ["Don't panic","Keep calm","Bring a towel"];
 let workItems = ["Another coffee"];
+require('dotenv').config();
 
+const port = process.env.PORT || 3000;
 const app = express();
 
 // EJS
@@ -44,6 +46,6 @@ app.post("/work",function(req,res){
 
 // Server
 
-app.listen(3000,function(){
-    console.log("Server started on Port 3000");
+app.listen(port,function(){
+    console.log(`Server started on Port ${port}`);
 });
